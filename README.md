@@ -19,3 +19,7 @@ Tests can be run with
 ```
 npm run test
 ```
+
+##Todo
+- add production config for webpack build
+- add more documentation

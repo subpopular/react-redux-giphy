@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node babel.server.js",
     "dev": "NODE_ENV=development node babel.server.js",
-    "test": "mocha --compilers js:babel-register --require test/setup.js",
+    "test": "mocha --recursive --compilers js:babel-register --require test/setup.js src/**/*.test.js",
     "test:watch": "npm test -- --watch"
   },
   "author": "Darek Rossman<darekrossman@me.com>",

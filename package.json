@@ -36,6 +36,7 @@
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.2",
     "redbox-react": "^1.2.2",
+    "redux-logger": "^2.5.0",
     "sass-loader": "^3.1.1",
     "style-loader": "^0.13.0",
     "testdom": "^2.0.0",
@@ -48,6 +49,8 @@
     "express": "^4.13.4",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
+    "react-redux": "^4.4.0",
+    "redux": "^3.3.1",
     "serve-static": "^1.10.2"
   }
 }

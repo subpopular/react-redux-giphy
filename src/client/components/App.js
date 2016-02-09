@@ -11,8 +11,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    giphy.search('kittens').then(res => {
-      this.setState({ gifs: res.data });
+    this.props.store.dispatch({
+      types: ['FETCH_GIFS', 'FETCH_GIFS_SUCCESS', 'FETCH_GIFS_FAIL'],
+      promise: () => giphy.search('kittens')
     });
   }
 

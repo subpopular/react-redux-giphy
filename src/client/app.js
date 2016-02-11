@@ -1,13 +1,34 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { promiseMiddleware, logger } from './redux/middlewares';
+import { Provider } from 'react-redux';
+import logger from 'redux-logger';
+import thunkMiddleware from './redux/thunk-middleware';
 import App from './components/App';
 
-let reducer = (state = {}, action) => {
-  return state;
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'FETCH_ITEMS':
+      return {
+        ...state,
+        loading: true
+      };
+    case 'FETCH_ITEMS_SUCCESS':
+      return {
+        ...state,
+        loading: false,
+        gifs: action.payload.data
+      };
+    default:
+      return state;
+  }
 };
 
-let store = createStore(reducer, applyMiddleware(promiseMiddleware, logger()));
+const store = createStore(reducer, {}, applyMiddleware(thunkMiddleware, logger()));
 
-render(<App store={store}/>, document.getElementById('root'));
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
